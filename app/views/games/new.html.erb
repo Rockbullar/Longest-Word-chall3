@@ -1,0 +1,23 @@
+<h1>Games#new</h1>
+<p>Find me in app/views/games/new.html.erb</p>
+
+<div class='container'>
+  <div class ='row'>
+    <% @letters.each do |letter| %>
+    <div class="card text-white bg-primary m-1 col-1" style="max-width: 18rem;">
+      <div class="card-body">
+        <h1 class="card-title"><%= letter %></h1>
+        <%# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<form action='score' method='post' class='my-3'>
+  <label for='word'>Enter your answer here!</label>
+  <input type='text' name='word'>
+  <input type='submit'>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+</form>
